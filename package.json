@@ -1,0 +1,47 @@
+{
+  "name": "crm-backend",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "author": {
+    "name": "Samuel Souza",
+    "email": "ssouza.gomes10@gmail.com"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --inspect --no-notify src/index.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "cross-env": "^7.0.3",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^3.0.0",
+    "prisma": "^4.15.0",
+    "ts-node": "^10.9.1",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/helmet": "^11.0.0",
+    "@fastify/multipart": "^7.7.0",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fastify": "^4.19.2",
+    "fastify-multer": "^2.0.3",
+    "fastify-qs": "^4.0.2",
+    "node-cmdline-parser": "^1.0.3",
+    "pino": "^8.14.1",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "zod": "^3.21.4"
+  }
+}
