@@ -23,12 +23,22 @@ export namespace RegisterUserService {
 
     const password = generatePassword()
 
+		const teamExist = await prisma.teams.findFirst({
+			where: {
+				id: team_id
+			}
+		})
+
+		if (!teamExist) {
+      throw new AppError('TEAM_NOT_FOUND', StatusCode.NOT_FOUND)
+    }
+
     const user = await prisma.users.create({
       data: {
         name,
         email: email.toLowerCase(),
         password: encriptPassword(password),
-				// team_id,
+				team_id,
       },
 			select: {
 				id: true,

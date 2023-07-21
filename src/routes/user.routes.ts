@@ -7,5 +7,10 @@ export const userRoutes = async (fastify: FastifyInstance) => {
     method: 'POST',
     url: '/Register',
     handler: UserController.register
-  })
+  }),
+	fastify.route({
+		method: 'GET',
+		url: '/:id',
+		handler: UserController.getById
+	})
 }
