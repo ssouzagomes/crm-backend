@@ -1,0 +1,44 @@
+import _ from 'lodash'
+import { UserTypes } from "~/types/user.types";
+import { registerUserValidation } from "~/validations/user.validation";
+import { encriptPassword, generatePassword } from "~/helpers/password";
+import prisma from "../prisma";
+import AppError from "~/exceptions/generic.exception";
+import StatusCode from "~/helpers/statusCode";
+import { AddUserPermissionService } from '../permissions/add-user-permission.service';
+
+export namespace RegisterUserService {
+  export const execute = async (model: UserTypes.RegisterParams) => {
+    const { name, email, flags, team_id, permissionAKA } = await registerUserValidation.parseAsync(model)
+
+    const emailExist = await prisma.users.findFirst({
+      where: {
+        email: email.toLowerCase()
+      }
+    })
+
+    if (emailExist) {
+      throw new AppError('USER_ALREADY_EXIST', StatusCode.BAD_REQUEST)
+    }
+
+    const password = generatePassword()
+
+    const user = await prisma.users.create({
+      data: {
+        name,
+        email: email.toLowerCase(),
+        password: encriptPassword(password),
+				// team_id,
+      },
+			select: {
+				id: true,
+				email: true,
+				created_at: true,
+			}
+    })
+
+		await AddUserPermissionService.execute(user.id, flags, permissionAKA)
+
+    return { ..._.omit(user, 'password') }
+  }
+}

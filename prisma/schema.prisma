@@ -10,8 +10,56 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model permissions {
+  id         Int      @id @default(autoincrement())
+  flags      Json
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  users      users?
+}
+
+model departments {
+	id          Int         @id @default(autoincrement())
+  name        String      @db.VarChar(30)
+  description String?     @db.VarChar(255)
+  enabled     Boolean     @default(true)
+	teams			 	teams[]
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt
+
+  @@index([name])
+}
+
+model teams {
+	id          Int         @id @default(autoincrement())
+	name        String      @db.VarChar(30)
+	description String?     @db.VarChar(255)
+	department_id    				Int?
+	enabled     Boolean     @default(true)
+	users				users[]
+	created_at  DateTime    @default(now())
+	updated_at  DateTime    @updatedAt
+	department      				departments? 						@relation(fields: [department_id], references: [id])
+
+	@@index([name])
+	@@index([department_id])
+}
+
+model users {
+  id              				Int           					@id @default(autoincrement())
+  name            				String        					@db.VarChar(100)
+  email          				 	String        					@db.VarChar(255)
+  password        				String        					@db.VarChar(255)
+	pin                   	String?                 @db.VarChar(255)
+	permission_id						Int?										@unique
+	team_id									Int?
+	enabled         				Boolean       					@default(true)
+	first_login							Boolean									@default(true)
+	created_at      				DateTime      					@default(now())
+	updated_at      				DateTime      					@updatedAt
+	permission      				permissions? 						@relation(fields: [permission_id], references: [id])
+	team            				teams? 									@relation(fields: [team_id], references: [id])
+
+	@@index([email])
+	@@index([name])
 }
