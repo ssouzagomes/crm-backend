@@ -5,34 +5,39 @@ import { encriptPassword, generatePassword } from "~/helpers/password";
 import prisma from "../prisma";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
+import { AddUserPermissionService } from '../permissions/add-user-permission.service';
 
 export namespace RegisterUserService {
   export const execute = async (model: UserTypes.RegisterParams) => {
-    const { name, email } = await registerUserValidation.parseAsync(model)
+    const { name, email, flags, team_id, permissionAKA } = await registerUserValidation.parseAsync(model)
 
-    const emailExist = await prisma.user.findFirst({
+    const emailExist = await prisma.users.findFirst({
       where: {
         email: email.toLowerCase()
       }
     })
 
-		console.log(emailExist)
     if (emailExist) {
       throw new AppError('USER_ALREADY_EXIST', StatusCode.BAD_REQUEST)
     }
 
     const password = generatePassword()
 
-
-		console.log(password)
-
-    const user = await prisma.user.create({
+    const user = await prisma.users.create({
       data: {
         name,
         email: email.toLowerCase(),
-        password: encriptPassword(password)
-      }
+        password: encriptPassword(password),
+				// team_id,
+      },
+			select: {
+				id: true,
+				email: true,
+				created_at: true,
+			}
     })
+
+		await AddUserPermissionService.execute(user.id, flags, permissionAKA)
 
     return { ..._.omit(user, 'password') }
   }
