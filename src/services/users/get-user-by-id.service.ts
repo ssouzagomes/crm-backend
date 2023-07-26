@@ -12,7 +12,17 @@ export namespace GetUserByIdService {
 		const user = await prisma.users.findFirst({
 			where: {
 				id
-			}
+			},
+			select: {
+				id: true,
+				name: true,
+				email: true,
+				first_login: true,
+				permission: true,
+				team: true,
+				created_at: true,
+				updated_at: true,
+			},
 		})
 
 		if (!user) {

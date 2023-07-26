@@ -13,4 +13,9 @@ export const userRoutes = async (fastify: FastifyInstance) => {
 		url: '/:id',
 		handler: UserController.getById
 	})
+	fastify.route({
+		method: 'GET',
+		url: '/',
+		handler: UserController.getAll
+	})
 }
