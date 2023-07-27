@@ -18,4 +18,16 @@ export const userRoutes = async (fastify: FastifyInstance) => {
 		url: '/',
 		handler: UserController.getAll
 	})
+	fastify.route({
+		method: 'PUT',
+		url: '/:id',
+		handler: UserController.update,
+		// preHandler: [authorization]
+	})
+	fastify.route({
+		method: 'PUT',
+		url: '/Disable/:id',
+		handler: UserController.disable,
+		// preHandler: [authorization]
+	})
 }

@@ -17,6 +17,7 @@ export namespace GetUserByIdService {
 				id: true,
 				name: true,
 				email: true,
+				enabled: true,
 				first_login: true,
 				permission: true,
 				team: true,

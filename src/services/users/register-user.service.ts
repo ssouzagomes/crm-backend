@@ -5,7 +5,7 @@ import { encriptPassword, generatePassword } from "~/helpers/password";
 import prisma from "../prisma";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
-import { AddUserPermissionService } from '../permissions/add-user-permission.service';
+import { UpdateUserPermissionService } from '../permissions/update-user-permission.service';
 
 export namespace RegisterUserService {
   export const execute = async (model: UserTypes.RegisterParams) => {
@@ -47,7 +47,7 @@ export namespace RegisterUserService {
 			}
     })
 
-		await AddUserPermissionService.execute(user.id, flags, permissionAKA)
+		await UpdateUserPermissionService.execute(user.id, flags, permissionAKA)
 
     return { ..._.omit(user, 'password') }
   }

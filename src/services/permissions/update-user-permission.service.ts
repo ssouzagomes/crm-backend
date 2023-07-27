@@ -7,7 +7,7 @@ import { PermissionsConstant } from "~/constants/permissions.constants";
 const akas = ['ADMIN', 'SUPPORT', 'RH', 'COLLABORATOR'];
 
 
-export namespace AddUserPermissionService {
+export namespace UpdateUserPermissionService {
 	export const execute = async (userId: number, flags: string[], permissionAKA: string[]) => {
 		const akasToAdd = _.intersection(akas, permissionAKA);
 
