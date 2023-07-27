@@ -5,7 +5,7 @@ import { encriptPassword, generatePassword } from "~/helpers/password";
 import prisma from "../prisma";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
-import { AddUserPermissionService } from '../permissions/add-user-permission.service';
+import { UpdateUserPermissionService } from '../permissions/update-user-permission.service';
 
 export namespace RegisterUserService {
   export const execute = async (model: UserTypes.RegisterParams) => {
@@ -23,12 +23,22 @@ export namespace RegisterUserService {
 
     const password = generatePassword()
 
+		const teamExist = await prisma.teams.findFirst({
+			where: {
+				id: team_id
+			}
+		})
+
+		if (!teamExist) {
+      throw new AppError('TEAM_NOT_FOUND', StatusCode.NOT_FOUND)
+    }
+
     const user = await prisma.users.create({
       data: {
         name,
         email: email.toLowerCase(),
         password: encriptPassword(password),
-				// team_id,
+				team_id,
       },
 			select: {
 				id: true,
@@ -37,7 +47,7 @@ export namespace RegisterUserService {
 			}
     })
 
-		await AddUserPermissionService.execute(user.id, flags, permissionAKA)
+		await UpdateUserPermissionService.execute(user.id, flags, permissionAKA)
 
     return { ..._.omit(user, 'password') }
   }
