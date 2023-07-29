@@ -63,3 +63,20 @@ model users {
 	@@index([email])
 	@@index([name])
 }
+
+model verifications {
+  id           				Int      @id @default(autoincrement())
+  uuid         				String   @db.Char(36)
+  token        				String   @db.VarChar(100)
+  status       				String   @db.VarChar(30)
+  attempts     				Int      @default(0)
+  type         				String   @db.VarChar(10)
+  value        				String   @db.VarChar(255)
+  max_attempts 				Int
+  created_at   				DateTime @default(now())
+  updated_at   				DateTime @updatedAt
+
+  @@index([token])
+  @@index([uuid])
+  @@index([type])
+}

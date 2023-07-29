@@ -29,16 +29,18 @@ export namespace RegisterUserService {
 			}
 		})
 
-		if (!teamExist) {
-      throw new AppError('TEAM_NOT_FOUND', StatusCode.NOT_FOUND)
-    }
+		// if (!teamExist) {
+    //   throw new AppError('TEAM_NOT_FOUND', StatusCode.NOT_FOUND)
+    // }
+
+		console.log('SENHA: ', password)
 
     const user = await prisma.users.create({
       data: {
         name,
         email: email.toLowerCase(),
         password: encriptPassword(password),
-				team_id,
+				// team_id,
       },
 			select: {
 				id: true,
