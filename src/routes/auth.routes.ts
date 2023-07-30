@@ -7,4 +7,9 @@ export const authRoutes = async (fastify: FastifyInstance) => {
     url: '/Login',
     handler: AuthController.auth
 	})
+	fastify.route({
+		method: 'POST',
+		url: '/CheckVerification',
+		handler: AuthController.checkVerification
+	})
 }

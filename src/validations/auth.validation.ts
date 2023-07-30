@@ -7,8 +7,19 @@ export const authValidation = z
 	})
 	.strict();
 
-export const checkVerificationValidation = z
+export const createVerificationValidation = z
   .object({
     value: z.string().email("EMAIL_INVALID").endsWith('@crm.com', 'NOT_CRM_MAIL_VALID'),
   })
   .strict();
+
+export const checkVerificationValidation = z
+	.object({
+		uuid: z.string().uuid('UUID_REQUIRED'),
+		token: z.string().max(6, 'TOKEN_INVALID').min(6, 'TOKEN_INVALID'),
+		ip: z.string(),
+		ua: z.string(),
+		device: z.string(),
+		client_info: z.string(),
+	})
+	.strict();
