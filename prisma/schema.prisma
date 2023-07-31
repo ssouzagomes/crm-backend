@@ -31,14 +31,14 @@ model departments {
 }
 
 model teams {
-	id          Int         @id @default(autoincrement())
-	name        String      @db.VarChar(30)
-	description String?     @db.VarChar(255)
+	id          						Int         						@id @default(autoincrement())
+	name        						String      						@db.VarChar(30)
+	description 						String?     						@db.VarChar(255)
 	department_id    				Int?
-	enabled     Boolean     @default(true)
-	users				users[]
-	created_at  DateTime    @default(now())
-	updated_at  DateTime    @updatedAt
+	enabled     						Boolean     						@default(true)
+	users										users[]
+	created_at  						DateTime    						@default(now())
+	updated_at  						DateTime    						@updatedAt
 	department      				departments? 						@relation(fields: [department_id], references: [id])
 
 	@@index([name])
@@ -46,20 +46,20 @@ model teams {
 }
 
 model users_sessions {
-  id          		Int      @id @default(autoincrement())
-  session_key 		String   @db.VarChar(255)
-  active      		Boolean
-  client_info 		String   @db.VarChar(255)
-  user_id     		Int
-  ua          		String   @db.VarChar(255)
-  ip          		String   @db.VarChar(100)
-  device      		String   @db.VarChar(255)
-  ip_location 		Json?
-  last_location  	Json?
-  created_at  		DateTime @default(now())
-  last_seen   		DateTime? @default(now())
-  updated_at  		DateTime @updatedAt
-  user        		users    @relation(fields: [user_id], references: [id])
+  id          						Int      								@id @default(autoincrement())
+  session_key 						String   								@db.VarChar(255)
+  active      						Boolean
+  client_info 						String   								@db.VarChar(255)
+  user_id     						Int
+  ua          						String   								@db.VarChar(255)
+  ip          						String   								@db.VarChar(100)
+  device      						String   								@db.VarChar(255)
+  ip_location 						Json?
+  last_location  					Json?
+  created_at  						DateTime 								@default(now())
+  last_seen   						DateTime? 							@default(now())
+  updated_at  						DateTime 								@updatedAt
+  user        						users    								@relation(fields: [user_id], references: [id])
 
   @@index([user_id])
   @@index([session_key])

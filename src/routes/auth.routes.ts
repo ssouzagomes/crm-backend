@@ -1,5 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { AuthController } from "~/controllers/auth.controller";
+import { authorization } from "~/middlewares/authorization.middleware";
 
 export const authRoutes = async (fastify: FastifyInstance) => {
 	fastify.route({
@@ -16,5 +17,11 @@ export const authRoutes = async (fastify: FastifyInstance) => {
 		method: 'POST',
 		url: '/ResendVerification',
 		handler: AuthController.resendVerification,
+	});
+	fastify.route({
+		method: 'POST',
+		url: '/Logout',
+		handler: AuthController.logout,
+		preHandler: [authorization]
 	});
 }
