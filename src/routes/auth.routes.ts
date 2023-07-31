@@ -12,4 +12,9 @@ export const authRoutes = async (fastify: FastifyInstance) => {
 		url: '/CheckVerification',
 		handler: AuthController.checkVerification
 	})
+	fastify.route({
+		method: 'POST',
+		url: '/ResendVerification',
+		handler: AuthController.resendVerification,
+	});
 }
