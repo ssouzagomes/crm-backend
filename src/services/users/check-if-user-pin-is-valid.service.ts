@@ -1,7 +1,7 @@
 import AppError from "~/exceptions/generic.exception"
 import StatusCode from "~/helpers/statusCode"
-import prisma from "../prisma"
 import { decriptPassword } from "~/helpers/password"
+import prisma from "../prisma"
 
 export namespace CheckIfUserPinIsValidService {
 	export const execute = async (user_id: number, pin: string): Promise<void> => {

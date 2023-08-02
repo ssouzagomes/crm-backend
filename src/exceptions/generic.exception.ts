@@ -14,7 +14,7 @@ class AppError {
 		this.statusCode = statusCode;
 	}
 
-	// we should save that error log on somewhere... maybe google cloud logging? 
+	// we should save that error log on somewhere... maybe google cloud logging?
 	public static handleException(error: any, res: FastifyReply) {
 
 		if (error?.response?.data) {
@@ -24,7 +24,7 @@ class AppError {
 		if (error instanceof ZodError) {
 			return res.status(StatusCode.BAD_REQUEST).send(new PresenterFactory(null, false, parseZodErrors(error)));
 		}
-    
+
 		if (error instanceof AppError) {
 			return res.status(error.statusCode).send(new PresenterFactory(null, false, [error.message]));
 		}

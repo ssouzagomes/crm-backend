@@ -14,6 +14,8 @@ export class PaginatorFactory<T> {
 	constructor(query: T, page: number, perPage: number, orderBy?: string, sortOrder?: Prisma.SortOrder | string) {
 		this.query = query;
 		this.page = page;
-		(this.perPage = perPage), (this.orderBy = orderBy), (this.sortOrder = sortOrder as Prisma.SortOrder);
+		this.perPage = perPage;
+		this.orderBy = orderBy;
+		this.sortOrder = sortOrder as Prisma.SortOrder;
 	}
 }

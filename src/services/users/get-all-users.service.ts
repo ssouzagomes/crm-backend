@@ -1,8 +1,8 @@
 import { Prisma } from "@prisma/client";
 import { PaginatorFactory } from "~/factory/paginator.factory";
 import { UserTypes } from "~/types/user.types";
-import prisma from "../prisma";
 import { PaginationFactory } from "~/factory";
+import prisma from "../prisma";
 
 export namespace GetAllUsersService {
 	export const execute = async (paginator: PaginatorFactory<UserTypes.Filters>) => {

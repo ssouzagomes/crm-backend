@@ -8,25 +8,28 @@
     "email": "ssouza.gomes10@gmail.com"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --inspect --no-notify src/index.ts"
+    "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --inspect --no-notify src/index.ts",
+    "lint": "eslint --ext js,ts src"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/lodash": "^4.14.195",
     "@types/node": "^20.3.1",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
+    "@types/uuid": "^9.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "cross-env": "^7.0.3",
+    "eslint": "^8.46.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^8.9.0",
     "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "prettier": "^3.0.0",
     "prisma": "^4.15.0",
     "ts-node": "^10.9.1",
-    "typescript": "*"
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "@fastify/cors": "^8.3.0",
@@ -34,8 +37,10 @@
     "@fastify/helmet": "^11.0.0",
     "@fastify/multipart": "^7.7.0",
     "@prisma/client": "^4.16.2",
+    "anyid": "^1.0.7",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
+    "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "fastify": "^4.19.2",
@@ -47,6 +52,7 @@
     "pino": "^8.14.1",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
+    "uuid": "^9.0.0",
     "zod": "^3.21.4"
   }
 }

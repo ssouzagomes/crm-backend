@@ -1,9 +1,9 @@
+import _ from "lodash";
 import { UserTypes } from "~/types/user.types";
 import { idValidation } from "~/validations/generic.validation";
-import prisma from "../prisma";
 import StatusCode from "~/helpers/statusCode";
 import AppError from "~/exceptions/generic.exception";
-import _ from "lodash";
+import prisma from "../prisma";
 
 export namespace GetUserByIdService {
 	export const execute = async (model: UserTypes.GetByIdParams) => {
