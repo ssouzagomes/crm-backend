@@ -1,7 +1,7 @@
 import StatusCode from "~/helpers/statusCode";
-import prisma from "../prisma"
 import AppError from "~/exceptions/generic.exception";
 import { SessionService } from "../session.service";
+import prisma from "../prisma"
 
 export namespace LogoutService {
 	export const execute = async (session_key: string) => {

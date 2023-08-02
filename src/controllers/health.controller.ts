@@ -11,7 +11,7 @@ export namespace HealthController {
       }
 
       return res.status(StatusCode.OK).send(new PresenterFactory(result, true))
-    } catch (error) { 
+    } catch (error) {
     }
   }
 }

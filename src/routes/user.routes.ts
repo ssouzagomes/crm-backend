@@ -2,14 +2,13 @@ import { FastifyInstance } from "fastify";
 import { UserController } from "~/controllers/user.controller";
 import { authorization } from "~/middlewares/authorization.middleware";
 
-
 export const userRoutes = async (fastify: FastifyInstance) => {
   fastify.route({
     method: 'POST',
     url: '/Register',
     handler: UserController.register,
 		preHandler: [authorization]
-  }),
+  })
 	fastify.route({
 		method: 'GET',
 		url: '/:id',

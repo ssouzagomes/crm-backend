@@ -2,9 +2,9 @@ import _ from 'lodash'
 import { UserTypes } from "~/types/user.types";
 import { registerUserValidation } from "~/validations/user.validation";
 import { encriptPassword, generatePassword } from "~/helpers/password";
-import prisma from "../prisma";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
+import prisma from "../prisma";
 import { UpdateUserPermissionService } from '../permissions/update-user-permission.service';
 
 export namespace RegisterUserService {

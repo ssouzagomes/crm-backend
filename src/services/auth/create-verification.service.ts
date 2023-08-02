@@ -1,10 +1,10 @@
-import { AuthTypes } from "~/types/auth.types";
-import { createVerificationValidation } from "~/validations/auth.validation";
-import prisma from "../prisma";
-import AppError from "~/exceptions/generic.exception";
-import StatusCode from "~/helpers/statusCode";
 import { anyid } from "anyid";
 import { v4 as uuidV4 } from 'uuid';
+import { AuthTypes } from "~/types/auth.types";
+import { createVerificationValidation } from "~/validations/auth.validation";
+import AppError from "~/exceptions/generic.exception";
+import StatusCode from "~/helpers/statusCode";
+import prisma from "../prisma";
 
 export namespace CreateVerificationService {
 	export const execute = async (model: AuthTypes.CreateVerificationParams) => {

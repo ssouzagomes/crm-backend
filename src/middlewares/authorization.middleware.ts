@@ -24,6 +24,5 @@ export const authorization = async (request: FastifyRequest, _: FastifyReply, ne
 		};
 	} catch (error) {
 		throw new AppError("INVALID_SESSION", StatusCode.UNAUTHORIZED);
-
 	}
 }

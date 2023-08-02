@@ -1,11 +1,10 @@
 import _ from "lodash";
-import prisma, { permissions as Permission } from "../prisma";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
 import { PermissionsConstant } from "~/constants/permissions.constants";
+import prisma, { permissions as Permission } from "../prisma";
 
 const akas = ['ADMIN', 'SUPPORT', 'RH', 'COLLABORATOR'];
-
 
 export namespace UpdateUserPermissionService {
 	export const execute = async (userId: number, flags: string[], permissionAKA: string[]) => {

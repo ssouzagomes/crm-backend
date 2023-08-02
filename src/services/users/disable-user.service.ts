@@ -1,6 +1,6 @@
-import prisma from "../prisma";
 import StatusCode from "~/helpers/statusCode";
 import AppError from "~/exceptions/generic.exception";
+import prisma from "../prisma";
 
 export namespace DisableUserService {
 	export const execute = async (id: number) => {

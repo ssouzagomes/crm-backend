@@ -1,9 +1,9 @@
 import { AuthTypes } from "~/types/auth.types";
 import { authValidation } from "~/validations/auth.validation";
-import prisma from "../prisma";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
 import { decriptPassword } from "~/helpers/password";
+import prisma from "../prisma";
 import { CreateVerificationService } from "./create-verification.service";
 
 export namespace AuthService {

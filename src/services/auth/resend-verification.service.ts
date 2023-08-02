@@ -1,9 +1,9 @@
-import AppError from "~/exceptions/generic.exception";
-import prisma from "../prisma"
-import StatusCode from "~/helpers/statusCode";
 import { anyid } from "anyid";
 import { v4 as uuidv4 } from 'uuid';
+import StatusCode from "~/helpers/statusCode";
+import AppError from "~/exceptions/generic.exception";
 import { AuthTypes } from "~/types/auth.types";
+import prisma from "../prisma"
 
 export namespace ResendVerificationService {
 	export const execute = async (uuid: string) => {

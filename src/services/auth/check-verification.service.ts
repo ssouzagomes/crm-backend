@@ -1,11 +1,11 @@
+import { differenceInHours } from "date-fns";
+import _ from "lodash";
 import { AuthTypes } from "~/types/auth.types";
 import { checkVerificationValidation } from "~/validations/auth.validation";
-import prisma from "../prisma";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
-import { differenceInHours } from "date-fns";
+import prisma from "../prisma";
 import { SessionService } from "../session.service";
-import _ from "lodash";
 
 export namespace CheckVerificationService {
 	export const execute = async (model: AuthTypes.CheckVerificationParams) => {
