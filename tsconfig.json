@@ -15,10 +15,11 @@
     "allowSyntheticDefaultImports": true,
     "removeComments": true,
     "newLine": "lf",
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
+    "noUnusedParameters": false,
     "baseUrl": ".",
     "lib": [
       "esnext",
