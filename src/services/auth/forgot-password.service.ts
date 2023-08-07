@@ -3,7 +3,6 @@ import { AuthTypes } from "~/types/auth.types"
 import { forgotPasswordValidation } from "~/validations/auth.validation"
 import AppError from "~/exceptions/generic.exception"
 import StatusCode from "~/helpers/statusCode"
-import { mailProvider } from '~/shared/providers/mail'
 import prisma from "../prisma"
 
 export namespace ForgotPasswordService {
