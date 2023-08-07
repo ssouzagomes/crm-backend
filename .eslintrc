@@ -14,6 +14,7 @@
 			"sourceType": "module"
 	},
 	"plugins": [
+		"eslint-plugin-import-helpers",
 		"@typescript-eslint",
 		"prettier"
 	],

@@ -24,4 +24,20 @@ export const authRoutes = async (fastify: FastifyInstance) => {
 		handler: AuthController.logout,
 		preHandler: [authorization]
 	});
+	fastify.route({
+		method: 'POST',
+		url: '/ForgotPassword',
+		handler: AuthController.forgotPassword,
+	})
+	fastify.route({
+		method: 'POST',
+		url: '/ChangePassword',
+		handler: AuthController.changePassword,
+		preHandler: [authorization]
+	})
+	fastify.route({
+		method: 'POST',
+		url: '/ResetPassword',
+		handler: AuthController.resetPassword,
+	})
 }
