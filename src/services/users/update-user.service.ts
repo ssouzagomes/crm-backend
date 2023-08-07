@@ -1,10 +1,10 @@
+import _ from "lodash";
 import { UserTypes } from "~/types/user.types";
 import { updateUserValidation } from "~/validations/user.validation";
-import prisma from "../prisma";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
+import prisma from "../prisma";
 import { UpdateUserPermissionService } from "../permissions/update-user-permission.service";
-import _ from "lodash";
 
 export namespace UpdateUserService {
 	export const execute = async (model: UserTypes.UpdateParams) => {

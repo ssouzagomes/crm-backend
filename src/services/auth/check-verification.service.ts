@@ -90,7 +90,7 @@ export namespace CheckVerificationService {
 		}
 
 		return {
-			message: 'Ok'
+			message: 'OK'
 		}
 	}
 }

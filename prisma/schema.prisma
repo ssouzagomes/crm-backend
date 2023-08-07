@@ -77,6 +77,7 @@ model users {
 	first_login							Boolean									@default(true)
 	created_at      				DateTime      					@default(now())
 	updated_at      				DateTime      					@updatedAt
+	users_storage						users_storage[]
 	users_sessions  				users_sessions[]
 	permission      				permissions? 						@relation(fields: [permission_id], references: [id])
 	team            				teams? 									@relation(fields: [team_id], references: [id])
@@ -100,4 +101,17 @@ model verifications {
   @@index([token])
   @@index([uuid])
   @@index([type])
+}
+
+model users_storage {
+	id									Int      @id @default(autoincrement())
+	key									String
+	value								String
+	user_id							Int
+	created_at					DateTime @default(now())
+	updated_at					DateTime @updatedAt
+	user								users    @relation(fields: [user_id], references: [id])
+
+	@@index([user_id])
+	@@index([key])
 }

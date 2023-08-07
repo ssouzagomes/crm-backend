@@ -21,7 +21,7 @@ export namespace AuthService {
 			throw new AppError('EMAIL_OR_PASSWORD_INVALID', StatusCode.BAD_REQUEST);
 		}
 
-		const passwordMatches = decriptPassword(password, user.password);
+		const passwordMatches = await decriptPassword(password, user.password);
 
 		if (!passwordMatches) {
 			throw new AppError('EMAIL_OR_PASSWORD_INVALID', StatusCode.BAD_REQUEST);
