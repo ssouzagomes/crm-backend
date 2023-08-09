@@ -4,6 +4,7 @@ import { forgotPasswordValidation } from "~/validations/auth.validation"
 import AppError from "~/exceptions/generic.exception"
 import StatusCode from "~/helpers/statusCode"
 import prisma from "../prisma"
+import { mailProvider } from '~/shared/providers/mail'
 
 export namespace ForgotPasswordService {
 	export const execute = async (model: AuthTypes.ForgotPasswordParams) => {
@@ -33,9 +34,15 @@ export namespace ForgotPasswordService {
 			}
 		})
 
-		console.log(storage)
-
-		// await mailProvider()
+		await mailProvider.sendMail({
+			to: 'ssouza.gomes10@gmail.com',
+			subject: 'Recuperação de senha',
+			template: 'recover_password',
+			keys: {
+				name: user.name,
+				url: `${callbackUrl}?token=${storage.value}`
+			}
+		})
 
 		return storage.value
 	}
