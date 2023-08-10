@@ -5,6 +5,7 @@ import { createVerificationValidation } from "~/validations/auth.validation";
 import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
 import prisma from "../prisma";
+import { mailProvider } from "~/shared/providers/mail";
 
 export namespace CreateVerificationService {
 	export const execute = async (model: AuthTypes.CreateVerificationParams) => {
@@ -36,6 +37,17 @@ export namespace CreateVerificationService {
 				status: AuthTypes.VerificationStatus.UNVERIFIED,
 				value,
 				type: AuthTypes.VerificationTypes.MAIL,
+			}
+		})
+
+		await mailProvider.sendMail({
+			to: 'ssouza.gomes10@gmail.com',
+			subject: 'Aqui está o seu código de confirmação',
+			template: 'confirm_login_pin',
+			keys: {
+				name: user.name,
+				token,
+				url: `${process.env.APP_CLIENT}/login`
 			}
 		})
 

@@ -34,9 +34,7 @@ export const mailProvider = ((): MailProvider => {
 
 		await transporter
 			.sendMail(mailData)
-			.then((r) => {
-				console.log('Message sent: ', r)
-			})
+			.then((r) => {})
 			.catch((err) => {
 				console.log({ err })
 			})
