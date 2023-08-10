@@ -49,6 +49,7 @@
     "fastify-multer": "^2.0.3",
     "fastify-qs": "^4.0.2",
     "generate-password": "^1.7.0",
+    "handlebars": "^4.7.8",
     "lodash": "^4.17.21",
     "node-cmdline-parser": "^1.0.3",
     "nodemailer": "^6.9.4",
