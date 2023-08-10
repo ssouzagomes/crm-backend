@@ -1,30 +1,16 @@
-version: '3'
+version: '1'
 
 services:
-  db:
-    image: mysql:8.0
+  postgres:
+    image: postgres
     container_name: db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: crm
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DATABASE: crm
     ports:
-      - '3306:3306'
+      - '5432:5432'
     expose:
-      - '3306'
+      - '5432'
     volumes:
-      - /var/lib/mysql
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.dev
-  #   container_name: crm-app
-  #   command: npm run dev
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - .:/home/app
-  #   environment:
-  #     PORT: 8000
-  #   depends_on:
-  #     - db
+      - /var/lib/postgresql

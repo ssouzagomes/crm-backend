@@ -6,6 +6,7 @@ import AppError from "~/exceptions/generic.exception";
 import StatusCode from "~/helpers/statusCode";
 import prisma from "../prisma";
 import { UpdateUserPermissionService } from '../permissions/update-user-permission.service';
+import { mailProvider } from '~/shared/providers/mail';
 
 export namespace RegisterUserService {
   export const execute = async (model: UserTypes.RegisterParams) => {
@@ -33,8 +34,6 @@ export namespace RegisterUserService {
     //   throw new AppError('TEAM_NOT_FOUND', StatusCode.NOT_FOUND)
     // }
 
-		console.log('SENHA: ', password)
-
     const user = await prisma.users.create({
       data: {
         name,
@@ -50,6 +49,17 @@ export namespace RegisterUserService {
     })
 
 		await UpdateUserPermissionService.execute(user.id, flags, permissionAKA)
+
+		await mailProvider.sendMail({
+			to: 'ssouza.gomes10@gmail.com',
+			subject: 'Bem vindo ao CRM',
+			template: 'confirm_account',
+			keys: {
+				name,
+				password,
+				url: `${process.env.APP_CLIENT}/login`
+			}
+		})
 
     return { ..._.omit(user, 'password') }
   }
