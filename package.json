@@ -10,7 +10,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --inspect --no-notify src/index.ts",
     "lint": "eslint --ext js,ts src",
-		"vercel-build": "npx prisma migrate deploy"
+		"vercel-build": "npx prisma migrate deploy",
+		"build": "tsc",
+		"start": "node dist/index.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",

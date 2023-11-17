@@ -10,4 +10,8 @@ yarn.lock
 .DS_Store
 
 # prisma
-# prisma/migrations
+prisma/migrations
+
+.vercel
+
+build
