@@ -1,8 +1,8 @@
 import { FastifyReply } from 'fastify';
 import { ZodError } from 'zod';
-import { PresenterFactory } from '~/factory';
-import StatusCode from '~/helpers/statusCode';
-import parseZodErrors from '~/helpers/zodErros';
+import { PresenterFactory } from '../factory';
+import StatusCode from '../helpers/statusCode';
+import parseZodErrors from '../helpers/zodErros';
 
 class AppError {
 	public readonly message: string;

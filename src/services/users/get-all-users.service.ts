@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
-import { PaginatorFactory } from "~/factory/paginator.factory";
-import { UserTypes } from "~/types/user.types";
-import { PaginationFactory } from "~/factory";
+import { PaginatorFactory } from "../../factory/paginator.factory";
+import { UserTypes } from "../../types/user.types";
+import { PaginationFactory } from "../../factory";
 import prisma from "../prisma";
 
 export namespace GetAllUsersService {

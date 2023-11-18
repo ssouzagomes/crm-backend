@@ -1,8 +1,8 @@
 import _ from "lodash";
-import { UserTypes } from "~/types/user.types";
-import { idValidation } from "~/validations/generic.validation";
-import StatusCode from "~/helpers/statusCode";
-import AppError from "~/exceptions/generic.exception";
+import { UserTypes } from "../../types/user.types";
+import { idValidation } from "../../validations/generic.validation";
+import StatusCode from "../../helpers/statusCode";
+import AppError from "../../exceptions/generic.exception";
 import prisma from "../prisma";
 
 export namespace GetUserByIdService {

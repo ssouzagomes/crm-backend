@@ -18,7 +18,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 export const startRest = async () => {
 	const fastify = Fastify({
-		logger: pino({ level: 'info' }),
+		logger: true,
 		bodyLimit: 50 * 1024 * 1024,
 		trustProxy: true,
 	});

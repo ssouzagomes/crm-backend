@@ -1,8 +1,8 @@
-import AppError from "~/exceptions/generic.exception";
-import { decriptPassword, encriptPassword, validatePassword } from "~/helpers/password";
-import StatusCode from "~/helpers/statusCode";
-import { AuthTypes } from "~/types/auth.types";
-import { changePasswordValidation } from "~/validations/auth.validation";
+import AppError from "../../exceptions/generic.exception";
+import { decriptPassword, encriptPassword, validatePassword } from "../../helpers/password";
+import StatusCode from "../../helpers/statusCode";
+import { AuthTypes } from "../../types/auth.types";
+import { changePasswordValidation } from "../../validations/auth.validation";
 import prisma from "../prisma";
 
 export namespace ChangePasswordService {

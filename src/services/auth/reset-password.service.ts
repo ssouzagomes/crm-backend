@@ -1,8 +1,8 @@
-import AppError from "~/exceptions/generic.exception";
-import { encriptPassword, validatePassword } from "~/helpers/password";
-import StatusCode from "~/helpers/statusCode";
-import { AuthTypes } from "~/types/auth.types";
-import { resetPasswordValidation } from "~/validations/auth.validation";
+import AppError from "../../exceptions/generic.exception";
+import { encriptPassword, validatePassword } from "../../helpers/password";
+import StatusCode from "../../helpers/statusCode";
+import { AuthTypes } from "../../types/auth.types";
+import { resetPasswordValidation } from "../../validations/auth.validation";
 import prisma from "../prisma";
 import { differenceInHours } from "date-fns";
 

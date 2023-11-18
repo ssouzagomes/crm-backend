@@ -1,16 +1,16 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import AppError from "~/exceptions/generic.exception";
-import { PaginatorFactory } from "~/factory/paginator.factory";
-import { PresenterFactory } from "~/factory/presenter.factory";
-import StatusCode from "~/helpers/statusCode";
-import { CheckIfUserPinIsValidService } from "~/services/users/check-if-user-pin-is-valid.service";
-import { DisableUserService } from "~/services/users/disable-user.service";
-import { GetAllUsersService } from "~/services/users/get-all-users.service";
-import { GetUserByIdService } from "~/services/users/get-user-by-id.service";
-import { RegisterUserService } from "~/services/users/register-user.service";
-import { UpdateUserService } from "~/services/users/update-user.service";
-import { GenericTypes } from "~/types/generic.types";
-import { UserTypes } from "~/types/user.types";
+import AppError from "../exceptions/generic.exception";
+import { PaginatorFactory } from "../factory/paginator.factory";
+import { PresenterFactory } from "../factory/presenter.factory";
+import StatusCode from "../helpers/statusCode";
+import { CheckIfUserPinIsValidService } from "../services/users/check-if-user-pin-is-valid.service";
+import { DisableUserService } from "../services/users/disable-user.service";
+import { GetAllUsersService } from "../services/users/get-all-users.service";
+import { GetUserByIdService } from "../services/users/get-user-by-id.service";
+import { RegisterUserService } from "../services/users/register-user.service";
+import { UpdateUserService } from "../services/users/update-user.service";
+import { GenericTypes } from "../types/generic.types";
+import { UserTypes } from "../types/user.types";
 
 export namespace UserController {
   export const register = async (

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { authValidation, changePasswordValidation, checkVerificationValidation, createVerificationValidation, forgotPasswordValidation, resetPasswordValidation } from '~/validations/auth.validation';
+import { authValidation, changePasswordValidation, checkVerificationValidation, createVerificationValidation, forgotPasswordValidation, resetPasswordValidation } from '../validations/auth.validation';
 
 export namespace AuthTypes {
 	export type AuthParams = z.infer<typeof authValidation>;

@@ -1,15 +1,15 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import AppError from "~/exceptions/generic.exception";
-import { PresenterFactory } from "~/factory/presenter.factory";
-import StatusCode from "~/helpers/statusCode";
-import { AuthService } from "~/services/auth/auth.service";
-import { ChangePasswordService } from "~/services/auth/change-password.service";
-import { CheckVerificationService } from "~/services/auth/check-verification.service";
-import { ForgotPasswordService } from "~/services/auth/forgot-password.service";
-import { LogoutService } from "~/services/auth/logout.service";
-import { ResendVerificationService } from "~/services/auth/resend-verification.service";
-import { ResetPasswordService } from "~/services/auth/reset-password.service";
-import { AuthTypes } from "~/types/auth.types";
+import AppError from "../exceptions/generic.exception";
+import { PresenterFactory } from "../factory/presenter.factory";
+import StatusCode from "../helpers/statusCode";
+import { AuthService } from "../services/auth/auth.service";
+import { ChangePasswordService } from "../services/auth/change-password.service";
+import { CheckVerificationService } from "../services/auth/check-verification.service";
+import { ForgotPasswordService } from "../services/auth/forgot-password.service";
+import { LogoutService } from "../services/auth/logout.service";
+import { ResendVerificationService } from "../services/auth/resend-verification.service";
+import { ResetPasswordService } from "../services/auth/reset-password.service";
+import { AuthTypes } from "../types/auth.types";
 
 export namespace AuthController {
 	export const auth = async (req: FastifyRequest<{ Body: AuthTypes.AuthParams }>, res: FastifyReply) => {

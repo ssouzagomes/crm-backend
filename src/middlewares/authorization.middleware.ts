@@ -1,10 +1,10 @@
 import { users_sessions } from "@prisma/client";
 import { FastifyReply, FastifyRequest, HookHandlerDoneFunction } from "fastify";
-import AppError from "~/exceptions/generic.exception";
-import StatusCode from "~/helpers/statusCode";
-import { SessionService } from "~/services/session.service";
+import AppError from "../exceptions/generic.exception";
+import StatusCode from "../helpers/statusCode";
+import { SessionService } from "../services/session.service";
 
-export const authorization = async (request: FastifyRequest, _: FastifyReply, next: HookHandlerDoneFunction): Promise<void> => {
+export const authorization = async (request: FastifyRequest, _: FastifyReply): Promise<void> => {
 	const authHeader = request.headers.authorization;
 	const lastLocation = request.headers['x-location'];
 

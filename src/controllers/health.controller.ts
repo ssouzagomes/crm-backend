@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { PresenterFactory } from "~/factory/presenter.factory";
-import StatusCode from "~/helpers/statusCode";
+import { PresenterFactory } from "../factory/presenter.factory";
+import StatusCode from "../helpers/statusCode";
 
 export namespace HealthController {
   export const health = async (req: FastifyRequest, res: FastifyReply) => {

@@ -1,12 +1,12 @@
 import _ from 'lodash'
-import { UserTypes } from "~/types/user.types";
-import { registerUserValidation } from "~/validations/user.validation";
-import { encriptPassword, generatePassword } from "~/helpers/password";
-import AppError from "~/exceptions/generic.exception";
-import StatusCode from "~/helpers/statusCode";
+import { UserTypes } from "../../types/user.types";
+import { registerUserValidation } from "../../validations/user.validation";
+import { encriptPassword, generatePassword } from "../../helpers/password";
+import AppError from "../../exceptions/generic.exception";
+import StatusCode from "../../helpers/statusCode";
 import prisma from "../prisma";
 import { UpdateUserPermissionService } from '../permissions/update-user-permission.service';
-import { mailProvider } from '~/shared/providers/mail';
+import { mailProvider } from '../../shared/providers/mail';
 
 export namespace RegisterUserService {
   export const execute = async (model: UserTypes.RegisterParams) => {
