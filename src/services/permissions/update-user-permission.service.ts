@@ -1,7 +1,7 @@
 import _ from "lodash";
-import AppError from "~/exceptions/generic.exception";
-import StatusCode from "~/helpers/statusCode";
-import { PermissionsConstant } from "~/constants/permissions.constants";
+import AppError from "../../exceptions/generic.exception";
+import StatusCode from "../../helpers/statusCode";
+import { PermissionsConstant } from "../../constants/permissions.constants";
 import prisma, { permissions as Permission } from "../prisma";
 
 const akas = ['ADMIN', 'SUPPORT', 'RH', 'COLLABORATOR'];

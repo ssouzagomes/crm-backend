@@ -1,9 +1,9 @@
 import { differenceInHours } from "date-fns";
 import _ from "lodash";
-import { AuthTypes } from "~/types/auth.types";
-import { checkVerificationValidation } from "~/validations/auth.validation";
-import AppError from "~/exceptions/generic.exception";
-import StatusCode from "~/helpers/statusCode";
+import { AuthTypes } from "../../types/auth.types";
+import { checkVerificationValidation } from "../../validations/auth.validation";
+import AppError from "../../exceptions/generic.exception";
+import StatusCode from "../../helpers/statusCode";
 import prisma from "../prisma";
 import { SessionService } from "../session.service";
 

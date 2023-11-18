@@ -11,3 +11,7 @@ yarn.lock
 
 # prisma
 prisma/migrations
+
+.vercel
+
+build

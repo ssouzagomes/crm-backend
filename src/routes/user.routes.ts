@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
-import { UserController } from "~/controllers/user.controller";
-import { authorization } from "~/middlewares/authorization.middleware";
+import { UserController } from "../controllers/user.controller";
+import { authorization } from "../middlewares/authorization.middleware";
 
 export const userRoutes = async (fastify: FastifyInstance) => {
   fastify.route({

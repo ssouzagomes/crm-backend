@@ -1,6 +1,6 @@
 import { anyid } from "anyid";
 import axios from "axios";
-import { SessionTypes } from "~/types/session.types";
+import { SessionTypes } from "../types/session.types";
 import prisma, { users_sessions } from "./prisma";
 
 export namespace SessionService {

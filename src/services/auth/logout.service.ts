@@ -1,5 +1,5 @@
-import StatusCode from "~/helpers/statusCode";
-import AppError from "~/exceptions/generic.exception";
+import StatusCode from "../../helpers/statusCode";
+import AppError from "../../exceptions/generic.exception";
 import { SessionService } from "../session.service";
 import prisma from "../prisma"
 

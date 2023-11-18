@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import { MailProvider, ParseEmailTemplate, SendMail } from './types';
-import mailConfig from '~/config/mail.config';
+import mailConfig from '../../../config/mail.config';
 import path from 'path';
 import { handlebarsProvider } from './config/handlebars';
 

@@ -1,6 +1,6 @@
-import AppError from "~/exceptions/generic.exception"
-import StatusCode from "~/helpers/statusCode"
-import { decriptPassword } from "~/helpers/password"
+import AppError from "../../exceptions/generic.exception"
+import StatusCode from "../../helpers/statusCode"
+import { decriptPassword } from "../../helpers/password"
 import prisma from "../prisma"
 
 export namespace CheckIfUserPinIsValidService {

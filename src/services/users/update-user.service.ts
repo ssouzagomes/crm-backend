@@ -1,8 +1,8 @@
 import _ from "lodash";
-import { UserTypes } from "~/types/user.types";
-import { updateUserValidation } from "~/validations/user.validation";
-import AppError from "~/exceptions/generic.exception";
-import StatusCode from "~/helpers/statusCode";
+import { UserTypes } from "../../types/user.types";
+import { updateUserValidation } from "../../validations/user.validation";
+import AppError from "../../exceptions/generic.exception";
+import StatusCode from "../../helpers/statusCode";
 import prisma from "../prisma";
 import { UpdateUserPermissionService } from "../permissions/update-user-permission.service";
 

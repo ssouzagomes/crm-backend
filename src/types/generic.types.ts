@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { idValidation } from "~/validations/generic.validation";
+import { idValidation } from "../validations/generic.validation";
 
 export namespace GenericTypes {
 	export type id = z.infer<typeof idValidation>

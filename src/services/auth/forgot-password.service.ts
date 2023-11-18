@@ -1,10 +1,10 @@
 import { v4 as uuidV4 } from 'uuid'
-import { AuthTypes } from "~/types/auth.types"
-import { forgotPasswordValidation } from "~/validations/auth.validation"
-import AppError from "~/exceptions/generic.exception"
-import StatusCode from "~/helpers/statusCode"
+import { AuthTypes } from "../../types/auth.types"
+import { forgotPasswordValidation } from "../../validations/auth.validation"
+import AppError from "../../exceptions/generic.exception"
+import StatusCode from "../../helpers/statusCode"
 import prisma from "../prisma"
-import { mailProvider } from '~/shared/providers/mail'
+import { mailProvider } from '../../shared/providers/mail'
 
 export namespace ForgotPasswordService {
 	export const execute = async (model: AuthTypes.ForgotPasswordParams) => {
