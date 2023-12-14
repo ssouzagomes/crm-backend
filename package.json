@@ -19,7 +19,7 @@
     "@fastify/formbody": "^7.4.0",
     "@fastify/helmet": "^11.0.0",
     "@fastify/multipart": "^7.7.0",
-    "@prisma/client": "^4.16.2",
+    "@prisma/client": "^5.7.0",
     "add": "^2.0.6",
     "anyid": "^1.0.7",
     "axios": "^1.4.0",
