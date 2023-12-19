@@ -84,7 +84,7 @@ export namespace CheckVerificationService {
 				}
 			})
 
-			throw new AppError('TOKEN_INVALID', StatusCode.BAD_REQUEST);
+			throw new AppError('INVALID_TOKEN', StatusCode.BAD_REQUEST);
 		} else if (verification.status === AuthTypes.VerificationStatus.REPROVED) {
 			throw new AppError('TOO_MANY_ATTEMPTS', StatusCode.BAD_REQUEST);
 		}

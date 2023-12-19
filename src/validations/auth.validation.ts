@@ -16,7 +16,7 @@ export const createVerificationValidation = z
 export const checkVerificationValidation = z
 	.object({
 		uuid: z.string().uuid('UUID_REQUIRED'),
-		token: z.string().max(6, 'TOKEN_INVALID').min(6, 'TOKEN_INVALID'),
+		token: z.string().max(6, 'INVALID_TOKEN').min(6, 'INVALID_TOKEN'),
 		ip: z.string(),
 		ua: z.string(),
 		device: z.string(),
@@ -42,7 +42,7 @@ export const changePasswordValidation = z
 
 export const resetPasswordValidation = z
 	.object({
-		token: z.string().uuid('TOKEN_INVALID'),
+		token: z.string().uuid('INVALID_TOKEN'),
 		password: z.string().min(8, "PASSWORD_MIN_LENGTH").max(32, "PASSWORD_MAX_LENGTH"),
 	})
 	.strict();
