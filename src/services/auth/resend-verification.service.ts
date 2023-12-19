@@ -4,6 +4,7 @@ import StatusCode from "../../helpers/statusCode";
 import AppError from "../../exceptions/generic.exception";
 import { AuthTypes } from "../../types/auth.types";
 import prisma from "../prisma"
+import { mailProvider } from "src/shared/providers/mail";
 
 export namespace ResendVerificationService {
 	export const execute = async (uuid: string) => {
@@ -23,17 +24,6 @@ export namespace ResendVerificationService {
 
 		const token = anyid().encode('0').length(6).random().id();
 
-		const newVerification = await prisma.verifications.create({
-			data: {
-				token,
-				uuid: uuidv4(),
-				max_attempts: 3,
-				status: AuthTypes.VerificationStatus.UNVERIFIED,
-				value: verification.value,
-				type: AuthTypes.VerificationTypes.MAIL,
-			}
-		})
-
 		const user = await prisma.users.findFirst({
 			where: {
 				email: verification.value,
@@ -49,6 +39,28 @@ export namespace ResendVerificationService {
 		if (!user) {
 			throw new AppError('USER_NOT_FOUND', StatusCode.BAD_REQUEST);
 		}
+
+		const newVerification = await prisma.verifications.create({
+			data: {
+				token,
+				uuid: uuidv4(),
+				max_attempts: 3,
+				status: AuthTypes.VerificationStatus.UNVERIFIED,
+				value: verification.value,
+				type: AuthTypes.VerificationTypes.MAIL,
+			}
+		})
+
+		await mailProvider.sendMail({
+			to: 'ssouza.gomes10@gmail.com',
+			subject: 'Aqui está o seu código de confirmação',
+			template: 'confirm_login_pin',
+			keys: {
+				name: user.name,
+				token,
+				url: `${process.env.APP_CLIENT}/login`
+			}
+		})
 
 		return newVerification.uuid
 	}
