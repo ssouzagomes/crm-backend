@@ -26,9 +26,11 @@ export namespace SessionService {
 	}
 
 	export const isValid = async(session_key: string, last_location?: string): Promise<users_sessions | null> => {
+		const sessionKey = session_key.replace('Bearer ', '')
+
 		const session = await prisma.users_sessions.findFirst({
 			where: {
-				session_key,
+				session_key: sessionKey,
 			}
 		})
 
