@@ -64,7 +64,7 @@ export namespace AuthController {
 
 	export const changePassword = async (req: FastifyRequest<{ Body: AuthTypes.ChangePasswordParams }>, res: FastifyReply) => {
 		try {
-			const result = await ChangePasswordService.execute(req.body);
+			const result = await ChangePasswordService.execute({ ...req.body, id: Number((req as any)?.user?.id) });
 			return res.status(StatusCode.OK).send(new PresenterFactory(result, true))
 		} catch (error) {
 			return AppError.handleException(error, res);
