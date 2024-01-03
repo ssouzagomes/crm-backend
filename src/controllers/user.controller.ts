@@ -94,7 +94,7 @@ export namespace UserController {
 
 	export const setPin = async (req: FastifyRequest<{ Body: UserTypes.SetPinParams }>, res: FastifyReply) => {
 		try {
-			const result = await SetPinUserService.execute(req.body);
+			const result = await SetPinUserService.execute({ id: Number((req as any)?.user?.id), type: req.body.type ?? 'set', pin: req.body.pin, newPin: req.body.newPin ?? undefined });
 			return res.status(StatusCode.OK).send(new PresenterFactory(result, true));
 		} catch (error: any) {
 			return AppError.handleException(error, res);
