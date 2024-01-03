@@ -11,6 +11,7 @@ import { RegisterUserService } from "../services/users/register-user.service";
 import { UpdateUserService } from "../services/users/update-user.service";
 import { GenericTypes } from "../types/generic.types";
 import { UserTypes } from "../types/user.types";
+import { SetPinUserService } from "src/services/users/set-pin-user.service";
 
 export namespace UserController {
   export const register = async (
@@ -88,6 +89,15 @@ export namespace UserController {
 			return res.status(StatusCode.OK).send(new PresenterFactory(result, true))
 		} catch (error) {
 			return AppError.handleException(error, res)
+		}
+	}
+
+	export const setPin = async (req: FastifyRequest<{ Body: UserTypes.SetPinParams }>, res: FastifyReply) => {
+		try {
+			const result = await SetPinUserService.execute(req.body);
+			return res.status(StatusCode.OK).send(new PresenterFactory(result, true));
+		} catch (error: any) {
+			return AppError.handleException(error, res);
 		}
 	}
 }

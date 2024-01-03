@@ -33,4 +33,10 @@ export const userRoutes = async (fastify: FastifyInstance) => {
 		handler: UserController.disable,
 		preHandler: [authorization]
 	})
+	fastify.route({
+		method: 'POST',
+		url: '/SetPin',
+		handler: UserController.setPin,
+		preHandler: [authorization],
+	})
 }
