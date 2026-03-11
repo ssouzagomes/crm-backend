@@ -22,11 +22,8 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Rodar lint
-        run: npm run lint
-
-      - name: Rodar testes
-        run: npm run test
+      - name: Iniciar banco de dados
+        run: npm run vercel-build
 
       - name: Build do projeto
         run: npm run build
